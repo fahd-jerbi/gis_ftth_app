@@ -1,0 +1,6 @@
+psycopg2-binary
+djangorestframework-gis
+django-cors-headers
+django-filter
+django-environ
+
