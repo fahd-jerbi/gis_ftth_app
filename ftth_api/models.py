@@ -21,10 +21,10 @@ class Duct(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="ducts")
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True)
     type = models.CharField(max_length=50, choices=Duct_types)
     capacity = models.IntegerField(null=True, blank=True)
-    color = models.CharField(max_length=20)
+    color = models.CharField(max_length=20, blank=True)
     geom = models.LineStringField(srid=25832)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -41,8 +41,8 @@ class Subduct(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name="subducts"
     )
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=20)
+    name = models.CharField(max_length=100, blank=True)
+    color = models.CharField(max_length=20, blank=True)
     geom = models.LineStringField(srid=25832)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -59,8 +59,8 @@ class POPArea(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name="pop_area"
     )
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=20)
+    name = models.CharField(max_length=100, blank=True)
+    color = models.CharField(max_length=20, blank=True)
     geom = models.PolygonField(srid=25832)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -77,8 +77,8 @@ class DPArea(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, related_name="dp_area"
     )
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=20)
+    name = models.CharField(max_length=100, blank=True)
+    color = models.CharField(max_length=20, blank=True)
     geom = models.PolygonField(srid=25832)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -95,9 +95,9 @@ class DP(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="dp")
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True)
     type = models.CharField(max_length=50, choices=DP_types)
-    color = models.CharField(max_length=20)
+    color = models.CharField(max_length=20, blank=True)
     geom = models.PointField(srid=25832)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -112,8 +112,8 @@ class DP(models.Model):
 class House(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="house")
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=20)
+    name = models.CharField(max_length=100, blank=True)
+    color = models.CharField(max_length=20, blank=True)
     address = models.TextField(max_length=500, blank=True)
     is_connected = models.BooleanField(default=False)
     geom = models.PointField(srid=25832)
