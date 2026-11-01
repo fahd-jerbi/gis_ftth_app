@@ -19,13 +19,10 @@ class ProjectViewSet(ModelViewSet):
 class DuctViewSet(ModelViewSet):
     serializer_class = DuctSerializer
 
-    # explain what functions are provided from "ModelViewSet" ?
     def get_queryset(self):
-        # what does this mean ?
         return Duct.objects.filter(project_id=self.kwargs["project_id"])
 
     def perform_create(self, serializer):
-        # why is this not returning ?
         serializer.save(project_id=self.kwargs["project_id"])
 
 

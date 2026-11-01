@@ -5,7 +5,7 @@ from .views import *
 router = DefaultRouter()
 router.register(r"projects", ProjectViewSet, basename="project")
 
-urlpattern = [
+urlpatterns = [
     # project url
     path("", include(router.urls)),
     # ducts url
