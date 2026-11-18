@@ -1,5 +1,6 @@
 import MapView from "./components/MapView/MapView";
 import { Navbar } from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
 import { AppProvider } from "./context/AppContext";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
       <div className="flex flex-col h-screen w-screen overflow-hidden bg-base-200">
         <Navbar />
         <div className="flex flex-1 overflow-hidden">
-          <div></div>
+          <Sidebar />
           <MapView />
         </div>
       </div>
@@ -17,11 +18,3 @@ function App() {
 }
 
 export default App;
-
-// <div className="flex flex-col h-screen w-screen overflow-hidden bg-base-200">
-//       <Navbar />
-//       <div className="flex flex-1 overflow-hidden">
-//         <Sidebar />
-//         <MapView />
-//       </div>
-//     </div>
